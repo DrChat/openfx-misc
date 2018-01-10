@@ -1993,7 +1993,7 @@ ShadertoyPlugin::changedParam(const InstanceChangedArgs &args,
         endEditBlock();
     } else if (paramName == kParamImageShaderSource) {
         _imageShaderCompile->setEnabled(true);
-        if (args.reason == eChangeUserEdit) {
+        if (args.reason == eChangeUserEdit && _imageShaderPreset) {
             _imageShaderPreset->setValue(0);
         }
     } else if ( ( (paramName == kParamCount) ||
