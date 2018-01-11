@@ -1031,8 +1031,8 @@ ShadertoyPlugin::RENDERFUNC(const OFX::RenderArguments &args)
     GLuint dstIndex = 0;
     GLenum format = 0;
     GLenum type = 0;
-#ifdef USE_OSMESA
     GLint depthBits = 0;
+#ifdef USE_OSMESA
     GLint stencilBits = 0;
     GLint accumBits = 0;
 #endif
@@ -1138,7 +1138,6 @@ ShadertoyPlugin::RENDERFUNC(const OFX::RenderArguments &args)
             return;
         }
     }
-#ifdef USE_OSMESA
     if (depthBits == 0) {
         switch (dstBitDepth) {
         case OFX::eBitDepthUByte:
@@ -1159,6 +1158,7 @@ ShadertoyPlugin::RENDERFUNC(const OFX::RenderArguments &args)
             return;
         }
     }
+#ifdef USE_OSMESA
     /* Allocate the image buffer */
     OSMesaPrivate *osmesa;
     {
